@@ -1,4 +1,7 @@
 // Definitions and convenience functions for 64-bit ELF files
+//
+// This is an implementation based on the latest System V spec:
+// <http://www.sco.com/developers/gabi/latest/contents.html>.
 
 pub mod program;
 
