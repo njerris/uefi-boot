@@ -1,11 +1,13 @@
-//! # uefi-boot Application Interface
+//! # uefi-boot Interface
 //! 
 //! uefi-boot supplies a 64-bit magic number and a pointer to a boot
 //! information structure when calling the entry function of the loaded
-//! application. The entry function should have the following signature:
+//! kernel. The entry function should have the following signature:
 //! ```rust
 //! extern "sysv64" fn(magic: u64, info_addr: usize);
 //! ```
+//! NOTE: "sysv64" applies to x86_64 systems; this is the only supported 
+//! architecture now
 //! 
 //! The entry function itself should validate the magic number before accessing
 //! the boot information structure, in order to verify that it was called by
@@ -22,5 +24,5 @@
 
 mod interface;
 
-use self::interface::MAGIC as MAGIC;
-use self::interface::BootInfo as BootInfo;
+pub use self::interface::MAGIC as MAGIC;
+pub use self::interface::BootInfo as BootInfo;

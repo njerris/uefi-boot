@@ -1,0 +1,18 @@
+[package]
+name = "uefi-boot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+r-efi = "4.0.0"
+utf16_lit = "2.0.2"
+
+[profile.dev]
+panic = "abort"
+lto = false
+
+[profile.release]
+panic = "abort"
+opt-level = 3
+lto = false
+debug = false

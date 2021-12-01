@@ -1,17 +1,16 @@
-//! Definitions for the uefi-boot application interface
+//! Definitions for the uefi-boot interface
 
 /// The magic number.
 pub const MAGIC: u64 = 0xfedcba9876543210;
 
 /// Boot information data structure.
 /// 
-/// This structure provides information necessary for the loaded application
-/// to take control of the system.
+/// This structure provides information necessary for the kernel to take 
+/// control of the system.
 /// 
-/// The loaded application must understand that all provided pointers are
-/// strictly physical addresses. If the application unmaps the system identity
-/// mapping of all physical memory, it must adjust those pointers accordingly,
-/// or not use them at all.
+/// All provided pointers are strictly physical addresses. If the kernel unmaps
+/// the system identity mapping of all physical memory, it must adjust those 
+/// pointers accordingly, or not use them at all.
 pub struct BootInfo {
     /// Pointer to the EFI memory map.
     pub efi_mmap_start: usize,
